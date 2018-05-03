@@ -1,0 +1,67 @@
+#define ROFIBG  #CF151515
+#define URXVTBG #CF000000
+
+!URxvt*scrollBar: false
+!URxvt*scrollBar_right: false
+!URxvt*scrollBar_floating: false
+!URxvt*depth: 32
+!URxvt*background: rgba:1500/1500/1500/DF00
+!URxvt*foreground: #FFFFFF
+!URxvt*font: xft:Inconsolata\-dz for Powerline:size=10
+!URxvt*letterSpace: 1
+!
+!! special
+!*.foreground:   #ffffff
+!*.background:   #000000
+!*.cursorColor:  #ffffff
+!
+!! black
+!*.color0:       #000000
+!*.color8:       #4d4d4d
+!
+!! red
+!*.color1:       #cc0403
+!*.color9:       #bc1a18
+!
+!! green
+!*.color2:       #19cb00
+!*.color10:      #23fd00
+!
+!! yellow
+!*.color3:       #cecb00
+!*.color11:      #fffd00
+!
+!! blue
+!*.color4:       #5854ec
+!*.color12:      #687be9
+!
+!! magenta
+!*.color5:       #cb1ed1
+!*.color13:      #fd28ff
+!
+!! cyan
+!*.color6:       #0dcdcd
+!*.color14:      #14ffff
+!
+!! white
+!*.color7:       #e5e5e5
+!*.color15:      #ffffff
+
+## Rofi theming
+!rofi.color-enabled: true
+!rofi.color-window: #273238, #273238, #1e2529
+!rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+!rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+!rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+
+!For Rofi
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #002f343f,  #fff3f4f5,  #002f343f,  #002f343f,  #ff9575cd
+
+!                  'background', 'border', 'separator'
+rofi.color-window:  ROFIBG,       ROFIBG,   ROFIBG
+rofi.modi: run,ssh,window
+rofi.fullscreen: true
+rofi.lines: 7 
+rofi.terminal: urxvt
+rofi.padding: 200
