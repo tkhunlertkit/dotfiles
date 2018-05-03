@@ -241,7 +241,7 @@ bindsym $mod+shift+u exec shutdown now
 hide_edge_borders both
 
 # Gaps
-gaps inner 15
+gaps inner 5
 gaps outer 0
 smart_gaps on
 
@@ -253,7 +253,7 @@ bindsym $mod+space focus mode_toggle
 
 # Load preferences
 exec_always --no-startup-id xrdb -load ~/.Xresources
-exec_always --no-startup-id ~/.screenlayout/dual.sh
+exec_always --no-startup-id ~/.screenlayout/dual2.sh
 exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
