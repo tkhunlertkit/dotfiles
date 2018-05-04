@@ -1,2 +1,8 @@
 open_with 
 set show_hidden true
+mkdir home
+search home
+search .gitigno
+code
+open_with code
+rename cobalt2.zsh-theme
