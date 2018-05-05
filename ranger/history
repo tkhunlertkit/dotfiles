@@ -1,8 +1,28 @@
-open_with 
-set show_hidden true
 mkdir home
 search home
 search .gitigno
 code
 open_with code
 rename cobalt2.zsh-theme
+column_ratios 1,2,4
+set column_ratios 1,2,4
+search .config
+search ranger
+set colorscheme default
+set colorscheme snpw
+set colorscheme snow
+search ran
+search range
+search .con
+search conf
+search con
+1?
+?
+shell !!?
+rename rc.conf rc.conf.bak
+
+rename rc.conf.bak
+set show_hidden true
+search config
+search rang
+open_with 
