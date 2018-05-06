@@ -271,4 +271,4 @@ exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jp
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id xset r rate 200 25
+exec --no-startup-id xset r rate 200 20

@@ -26,3 +26,4 @@ set show_hidden true
 search config
 search rang
 open_with 
+rm

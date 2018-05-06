@@ -98,4 +98,9 @@ alias ls='ls --color=auto'
 alias pac='sudo pacman'
 LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94'; export LS_COLORS
 
+if [[ ! $DISPLAY && $XDG_VTNR -le 3 ]]; then
+  exec startx
+fi
+
+
 cd
