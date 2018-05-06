@@ -1,0 +1,15 @@
+*
+!.gitignore
+!i3/
+!i3/*
+!rofi/
+!rofi/*
+!ranger
+!ranger/*
+!.screenlayout/*
+!termite
+!termite/*
+!compton.conf
+!.fonts/System SanFrancisco*
+!home/
+!home/*
