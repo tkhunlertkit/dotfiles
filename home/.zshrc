@@ -103,4 +103,3 @@ if [[ ! $DISPLAY && $XDG_VTNR -le 3 ]]; then
 fi
 
 cd
-xautolock -time 5 -locker $HOME/.config/.myscript/lock &
