@@ -10,7 +10,7 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR=''
+SEGMENT_SEPARATOR=' '
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -49,7 +49,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)✝"
+    prompt_segment default white "%(!.%{%F{yellow}%}.)✝"
   fi
 }
 

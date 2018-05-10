@@ -39,7 +39,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return 	exec $term
 # start firefox
-bindsym $mod+Shift+f 	exec google-chrome-stable
+bindsym $mod+Shift+f 	exec firefox
 # ranger
 bindsym $mod+r       	exec $term -e ranger
 

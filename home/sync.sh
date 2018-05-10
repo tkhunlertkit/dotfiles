@@ -20,5 +20,6 @@ rsync .xinitrc ~/.xinitrc
 rsync .Xresources ~/.Xresources
 rsync .zshrc ~/.zshrc
 rsync cobalt2.zsh-theme ~/.oh-my-zsh/themes/cobalt2.zsh-theme
+rsync agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 echo Done
 
