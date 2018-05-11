@@ -1,2 +1,3 @@
 #!/bin/bash
 xautolock -enable
+playerctl play-pause
