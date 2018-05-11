@@ -103,3 +103,4 @@ if [[ ! $DISPLAY && $XDG_VTNR -le 3 ]]; then
 fi
 
 cd
+export VIRTUAL_ENV_DISABLE_PROMPT=0

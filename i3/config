@@ -42,6 +42,9 @@ bindsym $mod+Return 	exec $term
 bindsym $mod+Shift+f 	exec firefox
 # ranger
 bindsym $mod+r       	exec $term -e ranger
+# Google Play Music Desktop Player
+bindsym $mod+m		exec gpmdp
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -150,6 +153,7 @@ assign [class="Chromium"] $workspace1
 assign [class="Google-chrome"] $workspace1
 assign [class="Transmission-gtk"] $workspace4
 assign [class="Thunderbird"] $workspace5
+assign [class="Google Play Music Desktop Player"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
