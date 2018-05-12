@@ -18,6 +18,7 @@ rsync .bash_profile ~/.bashprofile
 rsync .bashrc ~/.bashrc
 rsync .xinitrc ~/.xinitrc
 rsync .Xresources ~/.Xresources
+rsync .Xmodmap ~/.Xmodmap
 rsync .zshrc ~/.zshrc
 rsync cobalt2.zsh-theme ~/.oh-my-zsh/themes/cobalt2.zsh-theme
 rsync agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme

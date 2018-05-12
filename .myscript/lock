@@ -4,4 +4,3 @@ scrot -z /tmp/screenshot.png
 convert /tmp/screenshot.png -blur 0x10 /tmp/screenshot.png
 playerctl pause
 i3lock -i /tmp/screenshot.png -n; $HOME/.config/.myscript//unlock
-rm /tmp/screenshot.png

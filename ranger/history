@@ -24,7 +24,6 @@ rename rc.conf.bak
 set show_hidden true
 search config
 search rang
-shell 
 find 
 open_with 
 rename 2018-05-10-145335_3840x1080_scrot.png
@@ -32,7 +31,11 @@ search
 
 rm
 search downloa
-delete
 open_with llps
 open_with llp
 open_with llpp
+search Down
+shell 
+rename Nali - Modeling Linkage Disequilibrium (2003).pdf
+search Work
+delete

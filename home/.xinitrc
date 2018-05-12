@@ -41,6 +41,8 @@ twm &
 exec i3
 xrdb -merge ~/.Xresources
 feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
+# xbanish &
+# xautolock -time 1 -locker $HOME/.config/.myscript/lock
 #~/.screenlayout/dual.sh &
 
 bash ~/.screenlayout/dual.sh &

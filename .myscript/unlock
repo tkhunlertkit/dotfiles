@@ -1,3 +1,4 @@
 #!/bin/bash
 xautolock -enable
 playerctl play-pause
+rm /tmp/screenshot.png
