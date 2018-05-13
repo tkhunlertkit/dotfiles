@@ -15,4 +15,7 @@
 !home/*
 !.myscript/
 !.myscript/*
-
+!.texmaker/
+!.texmaker/*
+!.texmaker/dict/
+!.texmaker/dict/*
