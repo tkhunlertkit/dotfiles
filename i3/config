@@ -151,12 +151,14 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# Application Specifics
 assign [class="Firefox"] $workspace1
 assign [class="Chromium"] $workspace1
 assign [class="Google-chrome"] $workspace1
 assign [class="Transmission-gtk"] $workspace4
 assign [class="Thunderbird"] $workspace5
 assign [class="Google Play Music Desktop Player"] $workspace10
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 30 px
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
