@@ -249,8 +249,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Home and End Key bindings
-bindsym $mod1+Left exec xdotool key Home
-bindsym $mod1+Right exec xdotool key End
+# bindsym $mod1+Left exec xdotool key Home
+# bindsym $mod1+Right exec xdotool key End
 
 # Shutdown Shortcut
 bindsym $mod+shift+u exec shutdown now
