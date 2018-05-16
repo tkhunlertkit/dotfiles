@@ -37,14 +37,12 @@ font pango:System San Francisco Display 9
 floating_modifier $mod
 
 ### Program Shortcut ###
-# start a terminal
-bindsym $mod+Return 	exec $term
-# start firefox
-bindsym $mod+Shift+f 	exec firefox
-# ranger
-bindsym $mod+r       	exec $term -e ranger
-# Google Play Music Desktop Player
-bindsym $mod+m		exec gpmdp
+bindsym $mod+Return 	exec $term   		# start a terminal
+bindsym $mod+Shift+f 	exec firefox 		# start firefox
+bindsym $mod+r       	exec $term -e ranger   	# ranger
+bindsym $mod+m		exec gpmdp		# Google Play Music Desktop Player
+bindsym $mod+t		exec thunderbird	# Thunderbird
+bindsym $mod+d 		exec thunar		# Thunar: file manager
 
 
 # kill focused window
@@ -100,9 +98,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 
 # focus the parent container
@@ -202,7 +200,7 @@ bindsym $mod+Control+Shift+minus gaps outer current minus 5
 bindsym $mod+Control+0		gaps inner current set 0; gaps outer current set 0
 bindsym $mod+Control+Shift+0	gaps inner current set 15; gaps outer current set 0
 
-bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/scripts/flash_win.sh		
+bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/.myscript/flash_win.sh
 # bindsym $mod+r mode "resize"
 
 
