@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ $XDG_VTNR -eq 1 ]; then
+    $HOME/.config/.myscript/ScreenSettings/home.sh &
+
+elif [ $XDG_VTNR -eq 2 ]; then
+    $HOME/.config/.myscript/ScreenSettings/school.sh &else
+    $HOME/.config/.myscript/ScreenSettings/dusl.sh &
+fi

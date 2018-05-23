@@ -40,12 +40,18 @@ twm &
 #exec xterm -geometry 80x66+0+0 -name login
 exec i3
 xrdb -merge ~/.Xresources
-feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
+# feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
 # xbanish &
 # xautolock -time 1 -locker $HOME/.config/.myscript/lock
 #~/.screenlayout/dual.sh &
 
-bash ~/.screenlayout/dual.sh &
+#if [[ $XDG_VTNR -eq 1 ]]; then
+#    bash ~/.screenlayout/home.sh &
+#fi
+
+#if [[ $XDG_VTNR -eq 2 ]]; then 
+#    bash ~/.screenlayout/school.sh &
+#fi
 
 
 # Force KDE environment when running i3
