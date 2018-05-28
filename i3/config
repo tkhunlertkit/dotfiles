@@ -37,14 +37,12 @@ font pango:System San Francisco Display 9
 floating_modifier $mod
 
 ### Program Shortcut ###
-# start a terminal
-bindsym $mod+Return 	exec $term
-# start firefox
-bindsym $mod+Shift+f 	exec firefox
-# ranger
-bindsym $mod+r       	exec $term -e ranger
-# Google Play Music Desktop Player
-bindsym $mod+m		exec gpmdp
+bindsym $mod+Return 	exec $term   		# start a terminal
+bindsym $mod+Shift+f 	exec firefox 		# start firefox
+bindsym $mod+r       	exec $term -e ranger   	# ranger
+bindsym $mod+m		exec gpmdp		# Google Play Music Desktop Player
+bindsym $mod+t		exec thunderbird	# Thunderbird
+bindsym $mod+d 		exec thunar		# Thunar: file manager
 
 
 # kill focused window
@@ -151,12 +149,14 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# Application Specifics
 assign [class="Firefox"] $workspace1
 assign [class="Chromium"] $workspace1
 assign [class="Google-chrome"] $workspace1
 assign [class="Transmission-gtk"] $workspace4
 assign [class="Thunderbird"] $workspace5
 assign [class="Google Play Music Desktop Player"] $workspace10
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 30 px
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -200,7 +200,7 @@ bindsym $mod+Control+Shift+minus gaps outer current minus 5
 bindsym $mod+Control+0		gaps inner current set 0; gaps outer current set 0
 bindsym $mod+Control+Shift+0	gaps inner current set 15; gaps outer current set 0
 
-bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/scripts/flash_win.sh		
+bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/.myscript/flash_win.sh
 # bindsym $mod+r mode "resize"
 
 
@@ -251,8 +251,8 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
 # Home and End Key bindings
-bindsym $mod1+Left exec xdotool key Home
-bindsym $mod1+Right exec xdotool key End
+# bindsym $mod1+Left exec xdotool key Home
+# bindsym $mod1+Right exec xdotool key End
 
 # Shutdown Shortcut
 bindsym $mod+shift+u exec shutdown now
@@ -289,4 +289,5 @@ exec --no-startup-id xset r rate 200 20
 exec --no-startup-id xautolock -time 5 -locker $HOME/.config/.myscript/lock
 exec --no-startup-id xbanish
 exec_always --no-startup-id xrdb -load ~/.Xresources
+exec_always --no-startup-id ~/.screenlayout/home.sh
 exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
