@@ -246,6 +246,10 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Backlight Control
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
 # Home and End Key bindings
 bindsym $mod1+Left exec xdotool key Home
 bindsym $mod1+Right exec xdotool key End
