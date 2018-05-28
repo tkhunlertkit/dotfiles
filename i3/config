@@ -246,6 +246,10 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Backlight Control
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
 # Home and End Key bindings
 # bindsym $mod1+Left exec xdotool key Home
 # bindsym $mod1+Right exec xdotool key End
@@ -277,12 +281,13 @@ mouse_warping none
 # bindsym mod1+left Home
 
 # Load preferences
-exec_always --no-startup-id xrdb -load ~/.Xresources
-exec_always --no-startup-id ~/.screenlayout/home.sh
-exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
+exec --no-startup-id bash $HOME/.config/.myscript/screenload
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xset r rate 200 20
 exec --no-startup-id xautolock -time 5 -locker $HOME/.config/.myscript/lock
 exec --no-startup-id xbanish
+exec_always --no-startup-id xrdb -load ~/.Xresources
+exec_always --no-startup-id ~/.screenlayout/home.sh
+exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg

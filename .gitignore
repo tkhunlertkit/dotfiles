@@ -1,4 +1,6 @@
 *
+ranger/bookmarks
+ranger/history
 !.gitignore
 !i3/
 !i3/*
@@ -15,4 +17,7 @@
 !home/*
 !.myscript/
 !.myscript/*
-
+!.texmaker/
+!.texmaker/*
+!.texmaker/dict/
+!.texmaker/dict/*

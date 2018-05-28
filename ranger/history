@@ -1,9 +1,3 @@
-mkdir home
-search home
-search .gitigno
-code
-open_with code
-rename cobalt2.zsh-theme
 column_ratios 1,2,4
 set column_ratios 1,2,4
 search .config
@@ -25,17 +19,32 @@ set show_hidden true
 search config
 search rang
 find 
-open_with 
 rename 2018-05-10-145335_3840x1080_scrot.png
 search 
-
 rm
 search downloa
 open_with llps
 open_with llp
 open_with llpp
 search Down
-shell 
 rename Nali - Modeling Linkage Disequilibrium (2003).pdf
 search Work
+search work
+rename dict-en-20180501b.zip
+mkdir Mitel
+shell mkdir
+
+open_with zip
+shell 
+mkdir dict
+open_with unzip
+search texmaker
+rename en_US_bak.dic
+shell mkdir .texmaker
+shell mkdir Mitel Signed Documents
 delete
+shell "Mitel Signed Documents"
+shell mkdir "Mitel Signed Documents"
+search .gitignore
+search wo
+open_with 
