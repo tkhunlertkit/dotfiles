@@ -21,3 +21,6 @@ ranger/history
 !.texmaker/*
 !.texmaker/dict/
 !.texmaker/dict/*
+!gsimplecal/
+!gsimplecal/*
+!gsimplecal/
