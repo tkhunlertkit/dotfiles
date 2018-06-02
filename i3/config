@@ -43,6 +43,7 @@ bindsym $mod+r       	exec $term -e ranger   	# ranger
 bindsym $mod+m		exec gpmdp		# Google Play Music Desktop Player
 bindsym $mod+t		exec thunderbird	# Thunderbird
 bindsym $mod+d 		exec thunar		# Thunar: file manager
+bindsym $mod+Shift+h    exec hipchat4		# Hipchat
 
 
 # kill focused window
@@ -115,13 +116,13 @@ bindsym $mod+Shift+m move workspace to output left
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -156,6 +157,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Transmission-gtk"] $workspace4
 assign [class="Thunderbird"] $workspace5
 assign [class="Google Play Music Desktop Player"] $workspace10
+assign [class="HipChat"] $workspace4
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 30 px
 
 # reload the configuration file
@@ -281,13 +283,14 @@ mouse_warping none
 # bindsym mod1+left Home
 
 # Load preferences
-exec --no-startup-id bash $HOME/.config/.myscript/screenload
-exec --no-startup-id compton -f
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id xset r rate 200 20
-exec --no-startup-id xautolock -time 5 -locker $HOME/.config/.myscript/lock
-exec --no-startup-id xbanish
-exec_always --no-startup-id xrdb -load ~/.Xresources
-exec_always --no-startup-id ~/.screenlayout/home.sh
-exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg
+exec --no-startup-id bash $HOME/.config/.myscript/screenload 	# Load configuration of screen orientation
+exec --no-startup-id compton -f         			# Load compton for window effects
+exec --no-startup-id nm-applet         	 			# Launch NetworkManager
+exec --no-startup-id blueman-applet     			# Launch bluetooth manager
+exec --no-startup-id xset r rate 200 50 			# repeat after 200 ms, repeat rate at 50 times/s 
+exec --no-startup-id xset -b            			# turn bell off.
+exec --no-startup-id xautolock -time 3 -locker $HOME/.config/.myscript/lock # Auot lock screen in 3 mins
+exec --no-startup-id xbanish					# Remove mouse cursor while typing
+exec_always --no-startup-id xrdb -load ~/.Xresources		# Load Xresources
+exec_always --no-startup-id ~/.screenlayout/home.sh		# load screen preset if present
+exec_always --no-startup-id feh --bg-scale /home/tkhunlertkit/Pictures/space1.jpg # Load backgroud
