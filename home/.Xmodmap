@@ -1,4 +1,1 @@
 pointer = 1 6 3 4 5 2
-keysym Alt_L = Mode_switch
-keycode 113 = Left NoSybmol Home
-keycode 114 = Right NoSymbol End

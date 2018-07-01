@@ -1,5 +1,5 @@
 [options]
-font = Inconsolata-dz for Powerline 8.5
+font = Source Code Pro 8.5
 scrollback_lines = 10000
 clickable_url = true
 allow_bold = true
