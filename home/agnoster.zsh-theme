@@ -187,7 +187,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment default blue '%3~'
+  prompt_segment default blue "%$(( $COLUMNS - 70 ))<...<%~%<<"
 }
 
 # Virtualenv: current working virtualenv
