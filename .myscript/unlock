@@ -6,3 +6,4 @@ if [ $? -eq 0 ]; then
 fi
 rm /tmp/screenshot.png
 rm ~/.config/.myscript/tmp
+feh --randomize --bg-fill --no-xinerama $HOME/.config/Wallpapers/

@@ -4,6 +4,7 @@ ranger/history
 
 !.gitignore
 !compton.conf
+!install.sh
 
 !.myscript/*
 !.screenlayout/*

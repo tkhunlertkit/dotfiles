@@ -6,4 +6,4 @@ echo $? > ~/.config/.myscript/tmp
 playerctl pause
 scrot -z /tmp/screenshot.png
 convert /tmp/screenshot.png -blur 0x10 /tmp/screenshot.png
-i3lock -i /tmp/screenshot.png -n; $HOME/.config/.myscript//unlock
+i3lock -f -e -i /tmp/screenshot.png -n; $HOME/.config/.myscript//unlock

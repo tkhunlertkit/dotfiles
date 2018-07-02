@@ -104,3 +104,6 @@ fi
 
 cd
 export VIRTUAL_ENV_DISABLE_PROMPT=0
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin

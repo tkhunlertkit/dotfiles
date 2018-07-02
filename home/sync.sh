@@ -1,4 +1,4 @@
-#!//bin/sh
+#!/bin/sh
 # Run this script to link home config to this directory for easy git sync
 
 # echo Removing all files
