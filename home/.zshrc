@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract)
+plugins=(git extract zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,3 +104,6 @@ fi
 
 cd
 export VIRTUAL_ENV_DISABLE_PROMPT=0
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
