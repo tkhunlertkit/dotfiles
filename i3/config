@@ -89,7 +89,6 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+less move container to output left
 bindsym $mod+Shift+greater move container to output right
 
-
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -253,10 +252,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
-# Home and End Key bindings
-# bindsym $mod1+Left exec xdotool key Home
-# bindsym $mod1+Right exec xdotool key End
-
 # Shutdown Shortcut
 bindsym $mod+shift+u exec shutdown now
 
@@ -280,8 +275,14 @@ workspace_auto_back_and_forth yes
 focus_follows_mouse no
 mouse_warping none
 
-# Keyboard Behavior
-# bindsym mod1+left Home
+# Screenshots
+# Whole screen
+bindsym $mod+Ctrl+3 exec scrot
+# focused Window 
+bindsym --release $mod+Ctrl+2 exec scrot -ub
+# interactive
+bindsym --release $mod+Ctrl+4 exec scrot -sb
+
 
 # Load preferences
 exec --no-startup-id bash $HOME/.config/.myscript/screenload 	# Load configuration of screen orientation
