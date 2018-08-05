@@ -236,10 +236,13 @@ bindsym $mod+shift+x exec "$HOME/.config/.myscript/lock"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
+bindsym $mod+Prior exec --no-startup-id amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym $mod+Next exec --no-startup-id amixer sset Master 5%-
 #bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 #bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && amixer set Headphone toggle && amixer set Speaker toggle
-bindsym XF86AudioMute exec --no-startup-id amixer set Master 0% 
+bindsym XF86AudioMute exec "$HOME/.config/.myscript/mute" 
+bindsym $mod+Pause exec "$HOME/.config/.myscript/mute" 
 # Pulse Audio Alternatice Mac Keyboard
 #bindsym F10 exec --no-startup-id amixer set Master toggle
 # Media player controls
