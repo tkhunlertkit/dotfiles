@@ -96,7 +96,15 @@ man() {
 
 alias ls='ls --color=auto'
 alias pac='sudo pacman'
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 alias dnuke='docker stop $(docker ps -aq) && docker system prune -af'
+=======
+alias snuke='docker stop $(docker ps -aq) && docker system prune -af'
+>>>>>>> Stashed changes
+=======
+alias snuke='docker stop $(docker ps -aq) && docker system prune -af'
+>>>>>>> Stashed changes
 
 LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94'; export LS_COLORS
 
