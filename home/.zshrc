@@ -96,9 +96,11 @@ man() {
 
 alias ls='ls --color=auto'
 alias pac='sudo pacman'
+alias dnuke='docker stop $(docker ps -aq) && docker system prune -af'
+
 LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94'; export LS_COLORS
 
-if [[ ! $DISPLAY && $XDG_VTNR -le 3 ]]; then
+if [[ -z $DISPLAY && $XDG_VTNR -le 3 && $SSH_CLIENT ]]; then
   exec startx
 fi
 
@@ -107,3 +109,5 @@ export VIRTUAL_ENV_DISABLE_PROMPT=0
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/tkhunlertkit/.local/bin
+eval output=$( ssh-agent ) && eval $output && ssh-add

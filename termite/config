@@ -6,7 +6,7 @@ allow_bold = true
 
 [colors]
 foreground=	#ffffff
-# background=	rgba(15, 15, 15, 0.8)
+background=	rgba(0, 0, 0, 1)
 cursor=		#ffffff 
 color0=       	#000000
 color1=       	#cc0403
