@@ -205,7 +205,7 @@ bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/.myscript/flash_win
 client.focused          #000000  #ffccff    #000000  #00ff00
 client.focused_inactive	#000000  #282828    #ffffff  #00ff00
 client.unfocused        #000000  #000000    #ffffff  #00ff00
-client.urgent           #000000  #00ff00    #ffffff  #00ff00
+client.urgent           #000000  #ff0000    #ffffff  #00ff00
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -223,7 +223,7 @@ bar {
         separator           #757575
         #                   border   bkg      text
         focused_workspace   #ffccff  #000000  #ffffff
-        urgent_workspace    #000000  #000000  #ffffff
+        urgent_workspace    #000000  #ff0000  #ffffff
         active_workspace    #282828  #000000  #ffffff
         inactive_workspace  #000000  #000000  #999999
     }
