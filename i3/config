@@ -9,12 +9,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $white-color	 #ffffff
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676e7d
-set $urgent-bg-color     #e53935
 set $mod Mod4
 set $mod1 Mod1
 set $term termite
@@ -52,7 +46,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "System San Francisco 13" '
-bindsym $mod+space exec rofi -show run 
+bindsym $mod+space exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -139,7 +133,7 @@ bindsym $mod+grave workspace $workspace10
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1 
+bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
@@ -154,10 +148,10 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Firefox"] $workspace1
 assign [class="Chromium"] $workspace1
 assign [class="Google-chrome"] $workspace1
-assign [class="Transmission-gtk"] $workspace4
 assign [class="Thunderbird"] $workspace5
 assign [class="Google Play Music Desktop Player"] $workspace10
 assign [class="HipChat"] $workspace4
+assign [class="code"] $workspace2
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 30 px
 
 # reload the configuration file
@@ -207,39 +201,45 @@ bindsym $mod+Shift+grave	exec --no-startup-id bash ~/.config/.myscript/flash_win
 
 
 # Window colors
-#                       border		   backgroud		text			indicator	
-client.focused          $bg-color 	   $bg-color            $text-color     	#00ff00		
-client.unfocused	$inactive-bg-color $inactive-bg-color   $inactive-text-color	#00ff00		
-client.focused_inactive $inactive-bg-color $inactive-bg-color   $inactive-text-color    #00ff00		
-client.urgent           $inactive-bg-color $urgent-bg-color     $text-color		##00ff00	
+#                       border   backgroud  text     indicator
+client.focused          #000000  #ffccff    #000000  #00ff00
+client.focused_inactive	#000000  #282828    #ffffff  #00ff00
+client.unfocused        #000000  #000000    #ffffff  #00ff00
+client.urgent           #000000  #ff0000    #ffffff  #00ff00
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 	# i3bar_command i3bar -t
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	# height 20 
-        position top
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	# height 20
+    position top
 	tray_output primary
-	colors {
-		background $bg-color
-		separator #757575
-		#                       	border		   backgroud		text
-		focused_workspace          	$bg-color 	   $bg-color            $text-color     
-		inactive_workspace		$inactive-bg-color $inactive-bg-color   $inactive-text-color	
-		urgent_workspace	        $inactive-bg-color $urgent-bg-color     $text-color
-	}
+    font pango:FontAwesome 10
+
+    colors {
+        background          #000000
+        separator           #757575
+        #                   border   bkg      text
+        focused_workspace   #ffccff  #000000  #ffffff
+        urgent_workspace    #000000  #ff0000  #ffffff
+        active_workspace    #282828  #000000  #ffffff
+        inactive_workspace  #000000  #000000  #999999
+    }
 }
 
 bindsym $mod+shift+x exec "$HOME/.config/.myscript/lock"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
+bindsym $mod+Prior exec --no-startup-id amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym $mod+Next exec --no-startup-id amixer sset Master 5%-
 #bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 #bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && amixer set Headphone toggle && amixer set Speaker toggle
-bindsym XF86AudioMute exec --no-startup-id amixer set Master 0% 
+bindsym XF86AudioMute exec "$HOME/.config/.myscript/mute"
+bindsym $mod+Pause exec "$HOME/.config/.myscript/mute"
 # Pulse Audio Alternatice Mac Keyboard
 #bindsym F10 exec --no-startup-id amixer set Master toggle
 # Media player controls
@@ -278,7 +278,7 @@ mouse_warping none
 # Screenshots
 # Whole screen
 bindsym $mod+Ctrl+3 exec scrot
-# focused Window 
+# focused Window
 bindsym --release $mod+Ctrl+2 exec scrot -ub
 # interactive
 bindsym --release $mod+Ctrl+4 exec scrot -sb
@@ -289,7 +289,7 @@ exec --no-startup-id bash $HOME/.config/.myscript/screenload 	# Load configurati
 exec --no-startup-id compton -f         			# Load compton for window effects
 exec --no-startup-id nm-applet         	 			# Launch NetworkManager
 exec --no-startup-id blueman-applet     			# Launch bluetooth manager
-exec --no-startup-id xset r rate 200 50 			# repeat after 200 ms, repeat rate at 50 times/s 
+exec --no-startup-id xset r rate 200 50 			# repeat after 200 ms, repeat rate at 50 times/s
 exec --no-startup-id xset -b            			# turn bell off.
 exec --no-startup-id xautolock -time 3 -locker $HOME/.config/.myscript/lock # Auot lock screen in 3 mins
 exec --no-startup-id xbanish					# Remove mouse cursor while typing
