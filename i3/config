@@ -283,6 +283,9 @@ bindsym --release $mod+Ctrl+2 exec scrot -ub
 # interactive
 bindsym --release $mod+Ctrl+4 exec scrot -sb
 
+# xautolock config
+bindsym $mod+Shift+a exec xautolock -enable
+bindsym $mod+Shift+s exec xautolock -disable
 
 # Load preferences
 exec --no-startup-id bash $HOME/.config/.myscript/screenload 	# Load configuration of screen orientation
@@ -291,7 +294,7 @@ exec --no-startup-id nm-applet         	 			# Launch NetworkManager
 exec --no-startup-id blueman-applet     			# Launch bluetooth manager
 exec --no-startup-id xset r rate 200 50 			# repeat after 200 ms, repeat rate at 50 times/s
 exec --no-startup-id xset -b            			# turn bell off.
-exec --no-startup-id xautolock -time 3 -locker $HOME/.config/.myscript/lock # Auot lock screen in 3 mins
+exec --no-startup-id xautolock -time 5 -locker $HOME/.config/.myscript/lock # Auot lock screen in 3 mins
 exec --no-startup-id xbanish					# Remove mouse cursor while typing
 exec_always --no-startup-id xrdb -load ~/.Xresources		# Load Xresources
 exec_always --no-startup-id ~/.screenlayout/home.sh		# load screen preset if present
