@@ -140,8 +140,3 @@ autocmd BufWritePost *.py call flake8#Flake8() " Call pylint on save of .py
 autocmd BufWritePre * %s/\s\+$//e " Trim trailing white space when save.
 autocmd StdinReadPre * let s:std_in=1
 
-"" Functions
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
