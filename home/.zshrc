@@ -94,7 +94,6 @@ man() {
     command man "$@"
 }
 
-alias ls='ls --color=auto'
 alias pac='sudo pacman'
 alias dnuke='docker stop $(docker ps -aq) && docker system prune -af'
 
@@ -112,3 +111,20 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export PATH=$HOME/.local/bin
 # eval output=$( ssh-agent ) && eval $output && ssh-add
+export TERM=xterm-256color
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/tkhunlertkit/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/tkhunlertkit/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tkhunlertkit/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/tkhunlertkit/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+syntax on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,24 +29,27 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 "
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'scrooloose/nerdtree'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'zchee/deoplete-jedi'
-Plugin 'maralla/completor.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'nvie/vim-flake8'
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'kien/ctrlp.vim'
 Plugin 'luochen1990/rainbow'
+Plugin 'maralla/completor.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'edkolev/tmuxline.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomasiser/vim-code-dark'
+Plugin 'zchee/deoplete-jedi'
+Plugin 'majutsushi/tagbar'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'tpope/vim-obsession'
+Plugin 'haya14busa/incsearch.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,13 +67,27 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 set number
+set relativenumber
 set ruler
 set tabstop=4
 set shiftwidth=4
-set mouse=a
 set splitbelow
 set splitright
-colorscheme nord
+set scrolloff=10
+set laststatus=2
+set backspace=2
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+nmap <silent> <leader>. :vertical resize +5<CR>
+nmap <silent> <leader>, :vertical resize -5<CR>
+nmap <silent> <leader>= :res +5<CR>
+nmap <silent> <leader>- :res -5<CR>
+nmap <silent> <leader>' :vsplit<CR>
+nmap <silent> <leader>_ :split<CR>
+nnoremap <SPACE> <NOP>
+let mapleader=" "
 
 "" Remapping
 " move lines up or down
@@ -91,6 +109,7 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Shortcut for fuzzy search on file names
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra' " Only search in the working directory
@@ -100,6 +119,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|venv|env)$'
 let g:rainbow_active = 1
 let g:indent_guides_enable_on_vim_startup = 1
 highlight LineNr ctermfg=grey
+
+" Insearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " Vim status line
 " let g:airline#extensions#tabline#enabled = 1
@@ -134,9 +158,16 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+"" session manipulation
+let g:sessions_dir = '~/vim-sessions'
+exec 'nnoremap <Leader>ss :Obsession ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+
 "" Auto execution on event.
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " open NERDTree when no file is selected at launch
-autocmd BufWritePost *.py call flake8#Flake8() " Call pylint on save of .py
 autocmd BufWritePre * %s/\s\+$//e " Trim trailing white space when save.
 autocmd StdinReadPre * let s:std_in=1
+autocmd BufWritePost *.py call flake8#Flake8() " Call pylint on save of .py
+colorscheme nord
 
