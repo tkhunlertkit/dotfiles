@@ -50,6 +50,12 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-obsession'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plugin 'haya14busa/incsearch-easymotion.vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'preservim/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -80,14 +86,46 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+"Config with leader
+nnoremap <SPACE> <NOP>
+let mapleader=" "
 nmap <silent> <leader>. :vertical resize +5<CR>
 nmap <silent> <leader>, :vertical resize -5<CR>
 nmap <silent> <leader>= :res +5<CR>
 nmap <silent> <leader>- :res -5<CR>
 nmap <silent> <leader>' :vsplit<CR>
 nmap <silent> <leader>_ :split<CR>
-nnoremap <SPACE> <NOP>
-let mapleader=" "
+
+"" Easy Motion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Leader>/  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> <Leader>?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> <Leader>g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 "" Remapping
 " move lines up or down
@@ -107,8 +145,13 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+let g:ctrlsf_auto_preview = 1
+let g:ctrlsf_search_mode = 'async'
+let g:ctrlsf_position = 'left'
+let g:ctrlsf_winsize = '30%'
 
 " Shortcut for fuzzy search on file names
+"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -117,13 +160,35 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|venv|env)$'
 
 " enable rainbow stuff
 let g:rainbow_active = 1
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 2
+let g:indent_guides_guide_size = 0
 highlight LineNr ctermfg=grey
 
 " Insearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 0
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+map z/  <Plug>(incsearch-forward)
+map z?  <Plug>(incsearch-backward)
+map zg/ <Plug>(incsearch-stay)
+function! s:config_fuzzyall(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#fuzzy#converter(),
+  \     incsearch#config#fuzzyspell#converter()
+  \   ],
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> / incsearch#go(<SID>config_fuzzyall())
+noremap <silent><expr> ? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
+noremap <silent><expr> g? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
 
 " Vim status line
 " let g:airline#extensions#tabline#enabled = 1
@@ -162,6 +227,15 @@ let g:airline_symbols.linenr = ''
 let g:sessions_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :Obsession ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+"" Flake extension configuration
+let g:flake8_show_in_gutter=1  " show
+" to use colors defined in the colorscheme
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
 
 
 "" Auto execution on event.
