@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -103,7 +103,6 @@ LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94'; export LS_COLORS
 #  exec startx
 #fi
 
-cd
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
@@ -123,8 +122,11 @@ else
         . "/Users/tkhunlertkit/miniforge3/etc/profile.d/conda.sh"
     else
         export PATH="/Users/tkhunlertkit/miniforge3/bin:$PATH"
+		echo 'exporting path'
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
