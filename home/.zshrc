@@ -1,13 +1,16 @@
+eval `ssh-agent -s`
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="tkhunlertkit"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -94,10 +97,35 @@ man() {
     command man "$@"
 }
 
+alias ls='ls --color=auto'
 alias pac='sudo pacman'
 alias dnuke='docker stop $(docker ps -aq) && docker system prune -af'
+alias get='sudo apt-get'
+alias mount_smb_genomic='sudo mount -t cifs -o username=Genome03,password=Geno@2984 //smb.isilon-genome.bumrungrad.org/GenomeLab /mnt/smb_genomics'
+alias nf='ls | wc'
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+alias lg='ll | grep'
+alias lr='ll -tr'
+start_jupyter() {
+    cd /home/$1 && conda activate karn && sudo runuser -l $1 -c '/home/tkhunlertkit/anaconda3/envs/karn/bin/jupyter-lab'
+}
+mount_smb_genomic_rw() {
+    echo -n 'Are you sure to mount smb_genomics as read/write? [yN]: '
+    read ans
+    if [ "$ans" = "y" ]
+    then
+        sudo mount -t cifs -o username=Genome02,password=Geno@2539 //smb.isilon-genome.bumrungrad.org/GenomeLab /mnt/smb_genomics
+    fi
+}
+dr() {
+    du -sh $1 | sort -hr
+}
+killp() {
+    ps aux | grep -i $1 | tr -s ' ' | cut -d ' ' -f2 | head -n 1 | xargs kill -9
+}
 
-LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94'; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=1;34:ex=1;35:ln=0;94:ow=01;04;34'; export LS_COLORS
 
 #if [[ -z $DISPLAY && $XDG_VTNR -le 3 && $SSH_CLIENT ]]; then
 #  exec startx
@@ -108,25 +136,29 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export https_proxy=http://tanawatk:%404HanArinism%24%29%21@10.104.0.11:8080
+export http_proxy=http://tanawatk:%404HanArinism%24%29%21@10.104.0.11:8080
+export ftp_proxy=http://tanawatk:%404HanArinism%24%29%21@10.104.0.11:8080
+export TERM=xterm-256color
+export PATH="$PATH:/opt/mssql-tools/bin"
+export EDITOR='nvim'
 # export PATH=$HOME/.local/bin
 # eval output=$( ssh-agent ) && eval $output && ssh-add
-export TERM=xterm-256color
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tkhunlertkit/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/tkhunlertkit/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/tkhunlertkit/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/tkhunlertkit/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/tkhunlertkit/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tkhunlertkit/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/tkhunlertkit/miniforge3/bin:$PATH"
-		echo 'exporting path'
+        export PATH="/home/tkhunlertkit/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
